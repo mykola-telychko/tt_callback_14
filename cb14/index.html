@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling in Browser</title>
+</head>
+<body>
+
+<script>
+    // create event obj
+    const eventTarget = new EventTarget();
+
+    // sub on event
+    eventTarget.addEventListener('customYourEvent', (event) => {
+        console.log('Received customEvent with data:', event.detail);
+    });
+
+    // call event
+    const customEvent = new CustomEvent('customYourEvent',
+                                        { detail: { message: 'test data!', date: '2029-11-11' } }
+    );
+    eventTarget.dispatchEvent(customEvent);
+</script>
+
+</body>
+</html>
